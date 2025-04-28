@@ -203,6 +203,21 @@ public struct PhotoTools {
             }
             return
         }
+        
+        let cookie = UserDefaults.standard.string(forKey: "s3cookie")
+        let cookieModifier = AnyModifier { request in
+            var request = request
+//            // 添加你的 Cookie（例如从 HTTPCookieStorage 获取或手动构建）
+//            request.allHTTPHeaderFields = HTTPCookie.requestHeaderFields(with: [yourCookie])
+            // 或者直接设置 Cookie 字符串（格式为 "key=value"）
+            request.setValue(cookie, forHTTPHeaderField: "Cookie")
+            return request
+        }
+        
+        var options:[KingfisherOptionsInfoItem] = []
+        options.append(contentsOf: options)
+        options.append(.requestModifier(cookieModifier))
+        
         ImageDownloader.default.downloadImage(
             with: url,
             options: options,
