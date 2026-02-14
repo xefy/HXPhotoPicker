@@ -22,7 +22,8 @@ let package = Package(
                 .define("HXPICKER_ENABLE_SPM"),
                 .define("HXPICKER_ENABLE_PICKER"),
                 .define("HXPICKER_ENABLE_EDITOR"),
-                .define("HXPICKER_ENABLE_CAMERA")
+                .define("HXPICKER_ENABLE_CAMERA"),
+                .define("HXPICKER_ENABLE_CORE_IMAGEVIEW_KF")
             ]),
     ]
 )
